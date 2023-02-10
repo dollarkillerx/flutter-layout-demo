@@ -226,6 +226,46 @@ class BoxPage extends StatelessWidget {
     );
   }
 }
+
+Container(
+    // color: Colors.amber,
+    width: 300,
+    height: 200,
+    margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+    child: Text("Container"),
+    alignment: Alignment.center,
+
+    // 容器的修饰
+    decoration: BoxDecoration(
+      color: Colors.amber,
+      border: Border.all(color: Colors.blue, width: 5),
+      borderRadius: BorderRadius.circular(20),
+      boxShadow: [
+        BoxShadow(
+            color: Colors.black, offset: Offset(0, 0), blurRadius: 2),
+        BoxShadow(
+            color: Colors.red, offset: Offset(3, 3), blurRadius: 2),
+      ],
+
+      // 背景img
+      image: const DecorationImage(
+          image: NetworkImage("https://via.placeholder.com/600/92c952"), fit: BoxFit.cover),
+    ),
+
+    // 前景装饰
+    foregroundDecoration: BoxDecoration(
+      color: Colors.red.withOpacity(0.3), // 透明度
+    ),
+
+    // 转换
+    transform: Matrix4.rotationZ(0.3), // 转换
+
+    // 约束
+    constraints: const BoxConstraints(
+      minHeight: 100,
+      maxHeight: 500,
+    ),
+  )
 ```
 
 ### ListView 
@@ -253,7 +293,116 @@ API: `http://jsonplaceholder.typicode.com/photos?_start=0&_limit=5`
 
 无限下拉刷新用到 pull_to_refresh 第三方组件
 
+### 弹性布局 Flex
 
+- `Expanded` 获取剩余全部空间
 
+``` 
+Expanded(
+    child: Container(
+      width: 100,
+      height: 100,
+      color: Colors.cyan,
+    ),
+  ),
+  FlutterLogo(
+    size: 100,
+  )
+  
+  
+  Expanded(
+      child: FlutterLogo(
+        size: 100,
+      ),
+      flex: 1,   // 参数占用比例
+    )
+```
 
+- `const Spacer()` 解除 flex 比例限制
 
+``` 
+child: Row(
+    children: [
+      Expanded(
+        flex: 2,
+        child: Container(
+          width: 100,
+          height: 100,
+          color: Colors.cyan,
+        ),
+      ),
+      const Spacer(),
+      Expanded(
+        child: FlutterLogo(
+          size: 100,
+        ),
+        flex: 1,
+      )
+    ],
+  ),
+```
+
+### 层叠布局 Stack
+
+- `Stack`
+- `Positioned` 绝对定位
+
+``` 
+Stack(
+    alignment: Alignment.center,
+    clipBehavior: Clip.none, // 绝对定位超出部分是否裁切
+    children: [
+      Container(
+        color: Colors.amber,
+        width: 300,
+        height: 300,
+      ),
+      Container(
+        color: Colors.blue.shade50,
+        width: 200,
+        height: 200,
+      ),
+      Container(
+        color: Colors.green,
+        width: 100,
+        height: 100,
+      ),
+
+      // 绝对定位
+      Positioned(
+          left: 230,
+          top: 10,
+          child: FlutterLogo(
+            size: 120,
+          ))
+    ],
+  );
+```
+
+### 流式布局 Wrap
+
+``` 
+class WrapPage extends StatelessWidget {
+  const WrapPage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      child: Wrap(
+        alignment: WrapAlignment.spaceBetween, // 对其方式
+        spacing: 3, // 间距 水平
+        runSpacing: 3, // 垂直
+        children: [
+          card(),
+          card(),
+          card(),
+          card()
+        ],
+      ),
+    );
+  }
+}
+```
+
+### 对齐定位 Align

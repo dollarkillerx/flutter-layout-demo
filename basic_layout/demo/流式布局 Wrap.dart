@@ -17,14 +17,14 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         home: Scaffold(
-          appBar: AppBar(title: Text("对齐定位 Align")),
-          body: AlignPage(),
+          appBar: AppBar(title: Text("Wrap布局")),
+          body: WrapPage(),
         ));
   }
 }
 
-class AlignPage extends StatelessWidget {
-  const AlignPage({Key? key}) : super(key: key);
+class WrapPage extends StatelessWidget {
+  const WrapPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,21 @@ class AlignPage extends StatelessWidget {
         runSpacing: 3, // 垂直
         children: [
           card(),
-          card()
+          card(),
+          card(),
+          card(),
+          card(),
+          card(),
+          card(),
+          card(),
+          card(),
+          card(),
+          card(),
+          card(),
+          card(),
+          card(),
+          card(),
+          card(),
         ],
       ),
     );
@@ -54,7 +68,7 @@ Widget card() {
     Colors.deepPurple,
     Colors.blueGrey,
   ];
-  
+
   var rng = Random();
 
   return Container(
