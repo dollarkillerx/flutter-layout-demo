@@ -406,3 +406,38 @@ class WrapPage extends StatelessWidget {
 ```
 
 ### 对齐定位 Align
+
+- Align
+
+```
+Align({
+  Key key,
+  
+  // 需要一个AlignmentGeometry类型的值
+  // AlignmentGeometry 是一个抽象类，
+  // 它有两个常用的子类：Alignment和 FractionalOffset
+  this.alignment = Alignment.center,
+  
+  // 两个缩放因子
+  // 会分别乘以子元素的宽、高，最终的结果就是 Align 组件的宽高
+  this.widthFactor,
+  this.heightFactor,
+  Widget child,
+})
+
+   return Align(
+      heightFactor: 1.6,   // 定位   （微调）
+      widthFactor: 1.2,
+      // alignment: Alignment.topLeft,
+      child: card(),
+    );
+```
+
+- FractionalOffset
+
+``` 
+    return Align(
+      alignment: FractionalOffset(0,0.02), // 指示标 为 左上角
+      child: card(),
+    );
+```

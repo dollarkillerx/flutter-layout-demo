@@ -28,17 +28,15 @@ class AlignPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      child: Wrap(
-        alignment: WrapAlignment.spaceBetween, // 对其方式
-        spacing: 3, // 间距 水平
-        runSpacing: 3, // 垂直
-        children: [
-          card(),
-          card()
-        ],
-      ),
+    // return Align(
+    //   heightFactor: 1.6,   // 定位   （微调）
+    //   widthFactor: 1.2,
+    //   // alignment: Alignment.topLeft,
+    //   child: card(),
+    // );
+    return Align(
+      alignment: FractionalOffset(0,0.02), // 指示标 为 左上角
+      child: card(),
     );
   }
 }
@@ -59,7 +57,7 @@ Widget card() {
 
   return Container(
     color: colors[rng.nextInt(colors.length)],
-    child: Text("Card"),
+    child: Text("Card ${rng.nextInt(1000)}"),
     alignment: Alignment.center,
     width: 100,
     height: 100,
