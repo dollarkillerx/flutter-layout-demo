@@ -1,5 +1,7 @@
 # basic_layout
 
+![](./readme.png)
+
 ### 布局
 - 基础布局
   - Row 行
