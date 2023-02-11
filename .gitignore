@@ -24,3 +24,6 @@ doc/api/
 
 basic_layout/.idea/
 basic_layout/build/
+
+chat_demo/.idea/
+chat_demo/build/
