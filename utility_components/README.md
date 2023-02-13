@@ -7,6 +7,8 @@
 - DefaultTextStyle 设定一个区域之间的默认文本
 - 生命周期
 - 页面监听-AppLifecyle (demo 隐私页面)
+- [PageView and PageController](https://www.youtube.com/watch?v=sFXg-phkbQU) 
+- [Slivers Overview: SliverAppBar, SliverPersistentHeader](https://www.youtube.com/watch?v=E3-WdYBrEDc)
 
 ##### SafeArea
 
@@ -75,5 +77,67 @@ DefaultTextStyle(
   void didChangeAppLifecycleState(AppLifecycleState state) {
     super.didChangeAppLifecycleState(state);
     print("didChangeAppLifecycleState: $state");
+  }
+```
+
+
+##### PageView PageController
+
+
+// 默认为 左右滑动
+``` 
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Page View"),
+        actions: [
+          InkWell(
+            child: Icon(Icons.keyboard_arrow_left),
+            onTap: () {
+              // controller.animateToPage(
+              //     controller.initialPage == 0 ? 0 : controller.initialPage - 1,
+              //     duration: const Duration(seconds: 1),
+              //     curve: Curves.easeInOut);
+              controller.previousPage(
+                  duration: const Duration(seconds: 1),
+                  curve: Curves.easeInOut);
+            },
+          ),
+          InkWell(
+            child: Icon(Icons.keyboard_arrow_right),
+            onTap: () {
+              controller.nextPage(
+                  duration: const Duration(seconds: 1),
+                  curve: Curves.easeInOut);
+            },
+          )
+        ],
+      ),
+      body: PageView(
+        controller: controller,
+        scrollDirection: Axis.vertical, // 上下滑动
+        children: [
+          Container(
+            color: Colors.red,
+            child: const Center(
+              child: Text('Page 1'),
+            ),
+          ),
+          Container(
+            color: Colors.indigo,
+            child: const Center(
+              child: Text('Page 2'),
+            ),
+          ),
+          Container(
+            color: Colors.green,
+            child: const Center(
+              child: Text('Page 3'),
+            ),
+          )
+        ],
+      ),
+    );
   }
 ```
