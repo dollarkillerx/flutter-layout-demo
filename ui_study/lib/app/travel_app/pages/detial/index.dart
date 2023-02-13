@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:ui_study/app/travel_app/model/travel.dart';
 import 'controller.dart';
 
 class TravelDetialPage extends GetView<TravelDetialController> {
@@ -7,46 +8,45 @@ class TravelDetialPage extends GetView<TravelDetialController> {
   Widget build(BuildContext context) {
     return GetBuilder<TravelDetialController>(builder: (controller) {
       return Scaffold(
-        appBar: TravelDetialAppBar(),
         body: Stack(
           children: [
-            // CustomScrollView(
-            //   slivers: [
-            //     SliverPersistentHeader(delegate: delegate)
-            //   ],
-            // )
+            Container(
+              height: 100,
+              color: Colors.cyanAccent,
+              // child: Text(controller.travelItem.name),
+            ),
+            CustomScrollView(
+              slivers: [buildSliverHead(controller.travelItem, 300)],
+            )
           ],
         ),
       );
     });
   }
+
+  SliverPersistentHeader buildSliverHead(Travel travel, double expandedHeight) {
+    return SliverPersistentHeader(
+        delegate: DetailSliverDelegate(travel, expandedHeight));
+  }
 }
 
-class TravelDetialAppBar extends StatelessWidget with PreferredSizeWidget {
-  const TravelDetialAppBar({
-    super.key,
-  });
+class DetailSliverDelegate extends SliverPersistentHeaderDelegate {
+  final Travel travel;
+  final double expandedHeight;
+
+  DetailSliverDelegate(this.travel, this.expandedHeight);
 
   @override
-  Widget build(BuildContext context) {
-    return AppBar(
-      automaticallyImplyLeading: false,
-      centerTitle: true,
-      elevation: 0,
-      backgroundColor: Colors.transparent,
-      leading: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Icon(
-          Icons.keyboard_arrow_left,
-          color: Colors.white,
-        ),
-      ),
-      actions: [
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Icon(
-            Icons.menu,
-            color: Colors.white,
+  Widget build(
+      BuildContext context, double shrinkOffset, bool overlapsContent) {
+    throw Stack(
+      children: [
+        Opacity(
+          opacity: 0.8,
+          child: Image.asset(
+            travel.url,
+            width: MediaQuery.of(context).size.width,
+            height: expandedHeight,
           ),
         )
       ],
@@ -54,5 +54,13 @@ class TravelDetialAppBar extends StatelessWidget with PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+  double get maxExtent => expandedHeight;
+
+  @override
+  double get minExtent => 0;
+
+  @override
+  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) {
+    return true;
+  }
 }
