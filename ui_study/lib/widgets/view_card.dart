@@ -23,27 +23,29 @@ class ViewCard extends StatelessWidget {
           children: [
             Image.asset(img),
             Positioned(
-              child: Text(
-                title,
-                style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.red),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title,
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.red),
+                  ),
+                  SizedBox(height: 6,),
+                  Text(
+                    description,
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.red),
+                  )
+                ],
               ),
               bottom: 30,
-              left: 60,
+              left: 30,
             ),
-            Positioned(
-              child: Text(
-                description,
-                style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.red),
-              ),
-              bottom: 13,
-              left: 60,
-            )
           ],
         ),
         clipBehavior: Clip.antiAlias,

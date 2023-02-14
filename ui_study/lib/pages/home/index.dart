@@ -33,6 +33,14 @@ class HomePage extends GetView<HomeController> {
                 Get.toNamed(AppRoutes.Travel);
               },
             ),
+            ViewCard(
+              img: "assets/images/img2.png",
+              title: "House Rent App",
+              description: "房屋租赁App",
+              onTap: () {
+                Get.toNamed(AppRoutes.Travel);
+              },
+            ),
           ],
         ),
       );
