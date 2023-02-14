@@ -12,7 +12,6 @@ class MostPopular extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       itemBuilder: (context, index) {
         var travel = _list.elementAt(index);
-        print(travel.url);
         return Stack(
           children: [
             Container(

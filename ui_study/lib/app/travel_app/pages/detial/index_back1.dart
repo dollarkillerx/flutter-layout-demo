@@ -11,42 +11,7 @@ class TravelDetialPage extends GetView<TravelDetialController> {
         body: Stack(
           children: [
             CustomScrollView(
-              slivers: [
-                SliverAppBar(
-                  backgroundColor: Colors.transparent,
-                  automaticallyImplyLeading: false,
-                  expandedHeight: 300,
-                  flexibleSpace: FlexibleSpaceBar(
-                    collapseMode: CollapseMode.pin, // 上滑效果
-                    background: Container(
-                      color: Colors.amber,
-                      child: Stack(
-                        children: [
-                          Image.asset(
-                            controller.travelItem.url,
-                            width: double.infinity,
-                            fit: BoxFit.cover,
-                          ),
-                          Positioned(
-                            bottom: -1,
-                            child: Container(
-                                height: 30,
-                                width: MediaQuery.of(context).size.width,
-                                decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(30),
-                                        topRight: Radius.circular(30)))),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                SliverToBoxAdapter(
-                  child: buildBody(context),
-                )
-              ],
+              slivers: [buildSliverHead(controller.travelItem, 300, 50)],
             ),
             Container(
               height: kToolbarHeight, // AppBar 的高度
@@ -64,6 +29,7 @@ class TravelDetialPage extends GetView<TravelDetialController> {
                 ],
               ),
             ),
+            Positioned(bottom: 0, child: buildBody(context)),
           ],
         ),
       );
@@ -74,10 +40,14 @@ class TravelDetialPage extends GetView<TravelDetialController> {
     final textList = Travel.generateMostBlog();
 
     return Container(
+      height: MediaQuery.of(context).size.height - 270,
       width: MediaQuery.of(context).size.width,
-      color: Colors.white,
+      decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(30), topRight: Radius.circular(30))),
       child: Container(
-        padding: EdgeInsets.only(left: 30, right: 30),
+        padding: EdgeInsets.only(top: 40, left: 30, right: 30),
         child: Column(
           children: [
             buildHomeHeader(),
@@ -128,8 +98,9 @@ class TravelDetialPage extends GetView<TravelDetialController> {
               height: 20,
             ),
             Text(
-              "根据你当前开发机器的屏幕尺寸，模拟器模拟出来的高密度屏幕的设备可能会溢出你的屏幕，你可以调整模拟器的边角来拖动改变比例，如果你的开发机分辨率很高的话，也可以通过菜单中的 Window > Physical Size or Window > Pixel Accurate 选项来更改模拟器的缩放比例。根据你当前开发机器的屏幕尺寸，模拟器模拟出来的高密度屏幕的设备可能会溢出你的屏幕，你可以调整模拟器的边角来拖动改变比例，如果你的开发机分辨率很高的话，也可以通过菜单中的 Window > Physical Size or Window > Pixel Accurate 选项来更改模拟器的缩放比例。根据你当前开发机器的屏幕尺寸，模拟器模拟出来的高密度屏幕的设备可能会溢出你的屏幕，你可以调整模拟器的边角来拖动改变比例，如果你的开发机分辨率很高的话，也可以通过菜单中的 Window > Physical Size or Window > Pixel Accurate 选项来更改模拟器的缩放比例。根据你当前开发机器的屏幕尺寸，模拟器模拟出来的高密度屏幕的设备可能会溢出你的屏幕，你可以调整模拟器的边角来拖动改变比例，如果你的开发机分辨率很高的话，也可以通过菜单中的 Window > Physical Size or Window > Pixel Accurate 选项来更改模拟器的缩放比例。根据你当前开发机器的屏幕尺寸，模拟器模拟出来的高密度屏幕的设备可能会溢出你的屏幕，你可以调整模拟器的边角来拖动改变比例，如果你的开发机分辨率很高的话，也可以通过菜单中的 Window > Physical Size or Window > Pixel Accurate 选项来更改模拟器的缩放比例。",
-              style: TextStyle(color: Colors.grey),
+              "根据你当前开发机器的屏幕尺寸，模拟器模拟出来的高密度屏幕的设备可能会溢出你的屏幕，你可以调整模拟器的边角来拖动改变比例，如果你的开发机分辨率很高的话，也可以通过菜单中的 Window > Physical Size or Window > Pixel Accurate 选项来更改模拟器的缩放比例。",
+              style: TextStyle(
+                  color: Colors.grey, overflow: TextOverflow.ellipsis),
             ),
           ],
         ),
