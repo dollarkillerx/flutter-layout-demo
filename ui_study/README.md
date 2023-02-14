@@ -1,7 +1,8 @@
 # ui_study
 
 #### Menu
-- Travel App 
+- Travel App
+- House Rent App
 
 ##### Travel App 
 
