@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:ui_study/app/house_rent_app/pages/index/binding.dart';
+import 'package:ui_study/app/house_rent_app/pages/index/index.dart';
 import 'package:ui_study/app/travel_app/pages/detial/binding.dart';
 import 'package:ui_study/app/travel_app/pages/detial/index.dart';
 import 'package:ui_study/common/routers/app_routes.dart';
@@ -28,6 +30,19 @@ class AppPages {
         children: <GetPage>[
           GetPage(
             name: AppRoutes.TravelDetail,
+            page: () => TravelDetialPage(),
+            binding: TravelDetialBinding(),
+          )
+        ]),
+
+    // 案例2: Travel App
+    GetPage(
+        name: AppRoutes.HouseRent,
+        page: () => HouseRentIndexPage(),
+        binding: HouseRentIndexBinding(),
+        children: <GetPage>[
+          GetPage(
+            name: AppRoutes.HouseRentDetail,
             page: () => TravelDetialPage(),
             binding: TravelDetialBinding(),
           )

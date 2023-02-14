@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   get: ^4.6.5
   bruno: ^3.3.0
+  flutter_svg: ^2.0.1
 
 dev_dependencies:
   flutter_test:
