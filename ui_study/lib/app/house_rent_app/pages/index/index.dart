@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:ui_study/app/travel_app/widgets/most_popular.dart';
-import 'package:ui_study/app/travel_app/widgets/travel_blog.dart';
 import 'controller.dart';
 
 class HouseRentIndexPage extends GetView<HouseRentIndexController> {
@@ -9,15 +8,27 @@ class HouseRentIndexPage extends GetView<HouseRentIndexController> {
   Widget build(BuildContext context) {
     return GetBuilder<HouseRentIndexController>(builder: (controller) {
       return Scaffold(
-        appBar: AppBar(
-          leading: Image.asset("assets/icons/menu.svg"),
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          title: Text("Hello world"),
-        ),
+        // 默认AppBar 太大了
+        // appBar: AppBar(
+        //   leading: SvgPicture.asset('assets/icons/menu.svg'),
+        //   backgroundColor: Colors.transparent,
+        //   elevation: 0,
+        //   actions: [
+        //     Container(
+        //       width: kToolbarHeight,
+        //       decoration: BoxDecoration(
+        //         color: Colors.cyan,
+        //         image: DecorationImage(
+        //           image: ExactAssetImage("assets/images/avatar.jpeg"),
+        //           fit: BoxFit.cover
+        //         ),
+        //         borderRadius: BorderRadius.circular(150)
+        //       ),
+        //     )
+        //   ],
+        //   title: Text("Hello world"),
+        // ),
       );
     });
   }
-
 }
-
