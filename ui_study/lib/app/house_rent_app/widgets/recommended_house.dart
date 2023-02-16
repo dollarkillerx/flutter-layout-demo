@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ui_study/app/house_rent_app/model/house.dart';
+import 'package:ui_study/app/house_rent_app/widgets/tag_icon.dart';
 
 class RecommendedHouse extends StatelessWidget {
   final List<House> houses;
@@ -29,16 +29,9 @@ class RecommendedHouse extends StatelessWidget {
                       Positioned(
                         right: 5,
                         top: 10,
-                        child: SizedBox(
-                          height: 30,
-                          child: CircleAvatar(
-                            child: SvgPicture.asset(
-                              'assets/icons/mark.svg',
-                              height: 15,
-                            ),
-                            backgroundColor: Colors.redAccent,
-                          ),
-                        ),
+                        child: TagIcon(
+                            bgColor: Colors.pinkAccent,
+                            img: "assets/icons/mark.svg"),
                       ),
                       Positioned(
                           bottom: 5,
@@ -89,16 +82,9 @@ class RecommendedHouse extends StatelessWidget {
                                   Positioned(
                                       right: 27,
                                       top: 4,
-                                      child: SizedBox(
-                                        height: 30,
-                                        child: CircleAvatar(
-                                          child: SvgPicture.asset(
-                                            'assets/icons/heart.svg',
-                                            height: 15,
-                                          ),
-                                          backgroundColor: Colors.redAccent,
-                                        ),
-                                      ))
+                                      child: TagIcon(
+                                          bgColor: Colors.pinkAccent,
+                                          img: 'assets/icons/heart.svg'))
                                 ],
                               ),
                             ),
