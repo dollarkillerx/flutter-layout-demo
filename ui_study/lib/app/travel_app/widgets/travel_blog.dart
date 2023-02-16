@@ -24,7 +24,7 @@ class TravelBlog extends StatelessWidget {
                 onTap: () {
                   Get.toNamed(
                       AppRoutes.pathJoin(
-                          [AppRoutes.Travel, AppRoutes.TravelDetail]),
+                          [AppRoutes.Travel, AppRoutes.Detail]),
                       arguments: {
                         "travelItem": travelItem,
                       });

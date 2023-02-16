@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:ui_study/app/house_rent_app/widgets/categories.dart';
 import 'package:ui_study/app/house_rent_app/widgets/custom_app_bar.dart';
+import 'package:ui_study/app/house_rent_app/widgets/custorm_bottom_navigation_bar.dart';
 import 'package:ui_study/app/house_rent_app/widgets/search_input.dart';
 import 'controller.dart';
 
@@ -53,6 +54,7 @@ class HouseRentIndexPage extends GetView<HouseRentIndexController> {
             ),
           ),
         ),
+        bottomNavigationBar: CustomBottomNavigationBar(),
       );
     });
   }
