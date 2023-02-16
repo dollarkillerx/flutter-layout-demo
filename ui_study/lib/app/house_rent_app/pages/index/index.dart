@@ -41,9 +41,13 @@ class HouseRentIndexPage extends GetView<HouseRentIndexController> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 buildWelcomeText(),
-                SizedBox(height: 15,),
+                SizedBox(
+                  height: 15,
+                ),
                 SearchInput(),
-                SizedBox(height: 15,),
+                SizedBox(
+                  height: 15,
+                ),
                 Categories()
               ],
             ),
@@ -55,17 +59,22 @@ class HouseRentIndexPage extends GetView<HouseRentIndexController> {
 
   Column buildWelcomeText() {
     return Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text('Hello Raihan!', style: TextStyle(
-                    fontSize: 16,
-                  ),),
-                  SizedBox(height: 8,),
-                  Text('Find your sweet Home', style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w500
-                  ),)
-                ],
-              );
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Hello Raihan!',
+          style: TextStyle(
+            fontSize: 16,
+          ),
+        ),
+        SizedBox(
+          height: 8,
+        ),
+        Text(
+          'Find your sweet Home',
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+        )
+      ],
+    );
   }
 }
