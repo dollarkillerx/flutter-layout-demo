@@ -46,7 +46,7 @@ class HomePage extends GetView<HomeController> {
               title: "Adventure Travel App",
               description: "探险App",
               onTap: () {
-                Get.toNamed(AppRoutes.HouseRent);
+                Get.toNamed(AppRoutes.AdventureTravel);
               },
             ),
           ],

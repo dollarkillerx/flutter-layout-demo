@@ -3,6 +3,7 @@ class AppRoutes {
 
   static const String Travel = '/travel';
   static const String HouseRent = '/house_rent';
+  static const String AdventureTravel = '/adventure_travel';
 
   static const String Detail = '/detial';
 

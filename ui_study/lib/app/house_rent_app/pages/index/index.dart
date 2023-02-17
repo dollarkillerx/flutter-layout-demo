@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:ui_study/app/house_rent_app/widgets/categories.dart';
 import 'package:ui_study/app/house_rent_app/widgets/custom_app_bar.dart';

@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:ui_study/app/adventure_travel_app/pages/index/binding.dart';
 import 'package:ui_study/app/house_rent_app/pages/index/binding.dart';
 import 'package:ui_study/app/house_rent_app/pages/index/index.dart';
 import 'package:ui_study/app/travel_app/pages/detial/binding.dart';
@@ -8,6 +9,7 @@ import 'package:ui_study/components/r404.dart';
 import 'package:ui_study/pages/home/binding.dart';
 import 'package:ui_study/pages/home/index.dart';
 
+import '../../app/adventure_travel_app/pages/index/index.dart';
 import '../../app/house_rent_app/pages/detail/binding.dart';
 import '../../app/house_rent_app/pages/detail/index.dart';
 import '../../app/travel_app/pages/home/binding.dart';
@@ -48,7 +50,20 @@ class AppPages {
             page: () => HouseRentDetailPage(),
             binding: HouseRentDetialBinding(),
           )
-        ])
+        ]),
+
+    // 案例3: Adventure Travel App
+    GetPage(
+        name: AppRoutes.AdventureTravel,
+        page: () => AdventureTravelIndexPage(),
+        binding: AdventureTravelIndexBinding(),
+        children: <GetPage>[
+          GetPage(
+            name: AppRoutes.Detail,
+            page: () => HouseRentDetailPage(),
+            binding: HouseRentDetialBinding(),
+          )
+        ]),
   ];
 
   static final unknownRoute = GetPage(
