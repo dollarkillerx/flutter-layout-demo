@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
+import '../../model/model.dart';
 
-class HouseRentIndexController extends GetxController {
-
+class AdventureTravelDetailController extends GetxController {
+  final Place place = Get.arguments["place"];
 }

@@ -32,7 +32,7 @@ class AdventureTravelIndexPage extends GetView<AdventureTravelIndexController> {
                   ),
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 10,
                 ),
                 CategoryList(),
               ],

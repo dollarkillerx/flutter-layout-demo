@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:ui_study/app/adventure_travel_app/pages/detail/binding.dart';
+import 'package:ui_study/app/adventure_travel_app/pages/detail/index.dart';
 import 'package:ui_study/app/adventure_travel_app/pages/index/binding.dart';
 import 'package:ui_study/app/house_rent_app/pages/index/binding.dart';
 import 'package:ui_study/app/house_rent_app/pages/index/index.dart';
@@ -60,8 +62,8 @@ class AppPages {
         children: <GetPage>[
           GetPage(
             name: AppRoutes.Detail,
-            page: () => HouseRentDetailPage(),
-            binding: HouseRentDetialBinding(),
+            page: () => AdventureTravelDetailPage(),
+            binding: AdventureTravelDetailBinding(),
           )
         ]),
   ];

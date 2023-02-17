@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:ui_study/app/adventure_travel_app/model/model.dart';
 
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+
+import '../../../common/routers/app_routes.dart';
 
 class CategoryList extends StatefulWidget {
   const CategoryList({Key? key}) : super(key: key);
@@ -33,23 +36,35 @@ class _CategoryListState extends State<CategoryList> {
             mainAxisSpacing: 10,
             crossAxisSpacing: 10,
             itemBuilder: (context, index) {
-              return ImgCard(
-                title: categoryItemList
-                    .elementAt(activationIndex)
-                    .elementAt(index)
-                    .title,
-                subtitle: categoryItemList
-                    .elementAt(activationIndex)
-                    .elementAt(index)
-                    .subtitle,
-                img: categoryItemList
-                    .elementAt(activationIndex)
-                    .elementAt(index)
-                    .imageUrl,
-                height: categoryItemList
-                    .elementAt(activationIndex)
-                    .elementAt(index)
-                    .height,
+              return GestureDetector(
+                onTap: () {
+                  Get.toNamed(
+                      AppRoutes.pathJoin(
+                          [AppRoutes.AdventureTravel, AppRoutes.Detail]),
+                      arguments: {
+                        "place": categoryItemList
+                            .elementAt(activationIndex)
+                            .elementAt(index),
+                      });
+                },
+                child: ImgCard(
+                  title: categoryItemList
+                      .elementAt(activationIndex)
+                      .elementAt(index)
+                      .title,
+                  subtitle: categoryItemList
+                      .elementAt(activationIndex)
+                      .elementAt(index)
+                      .subtitle,
+                  img: categoryItemList
+                      .elementAt(activationIndex)
+                      .elementAt(index)
+                      .imageUrl,
+                  height: categoryItemList
+                      .elementAt(activationIndex)
+                      .elementAt(index)
+                      .height,
+                ),
               );
             },
           ),

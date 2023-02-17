@@ -2,10 +2,12 @@ import 'package:get/get.dart';
 import 'provider.dart';
 import 'controller.dart';
 
-class HouseRentIndexBinding extends Bindings {
+class AdventureTravelDetailBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<HouseRentIndexController>(() => HouseRentIndexController());
-    Get.lazyPut<HouseRentIndexProvider>(() => HouseRentIndexProvider());
+    Get.lazyPut<AdventureTravelDetailController>(
+        () => AdventureTravelDetailController());
+    Get.lazyPut<AdventureTravelDetailProvider>(
+        () => AdventureTravelDetailProvider());
   }
 }
