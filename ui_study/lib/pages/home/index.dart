@@ -49,10 +49,17 @@ class HomePage extends GetView<HomeController> {
                 Get.toNamed(AppRoutes.AdventureTravel);
               },
             ),
+            ViewCard(
+              img: "assets/images/img4.png",
+              title: "Course Learning App",
+              description: "课程学习App",
+              onTap: () {
+                Get.toNamed(AppRoutes.CourseLearning);
+              },
+            ),
           ],
         ),
       );
     });
   }
 }
-

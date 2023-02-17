@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'controller.dart';
 
-class CourseLearningIndexPage extends GetView<CourseLearningIndexController> {
+class CourseLearningDetailPage extends GetView<CourseLearningDetailController> {
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<CourseLearningIndexController>(builder: (controller) {
+    return GetBuilder<CourseLearningDetailController>(builder: (controller) {
       return Scaffold(
 
       );

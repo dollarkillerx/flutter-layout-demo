@@ -2,6 +2,10 @@ import 'package:get/get.dart';
 import 'package:ui_study/app/adventure_travel_app/pages/detail/binding.dart';
 import 'package:ui_study/app/adventure_travel_app/pages/detail/index.dart';
 import 'package:ui_study/app/adventure_travel_app/pages/index/binding.dart';
+import 'package:ui_study/app/course_learning_app/pages/detail/binding.dart';
+import 'package:ui_study/app/course_learning_app/pages/detail/index.dart';
+import 'package:ui_study/app/course_learning_app/pages/index/binding.dart';
+import 'package:ui_study/app/course_learning_app/pages/index/index.dart';
 import 'package:ui_study/app/house_rent_app/pages/index/binding.dart';
 import 'package:ui_study/app/house_rent_app/pages/index/index.dart';
 import 'package:ui_study/app/travel_app/pages/detial/binding.dart';
@@ -64,6 +68,19 @@ class AppPages {
             name: AppRoutes.Detail,
             page: () => AdventureTravelDetailPage(),
             binding: AdventureTravelDetailBinding(),
+          )
+        ]),
+
+    // 案例4: Course Learning App
+    GetPage(
+        name: AppRoutes.CourseLearning,
+        page: () => CourseLearningIndexPage(),
+        binding: CourseLearningIndexBinding(),
+        children: <GetPage>[
+          GetPage(
+            name: AppRoutes.Detail,
+            page: () => CourseLearningDetailPage(),
+            binding: CourseLearningDetailBinding(),
           )
         ]),
   ];
