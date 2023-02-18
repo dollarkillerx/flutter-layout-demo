@@ -12,7 +12,7 @@ class MessagingIndexPage extends GetView<MessagingIndexController> {
   Widget build(BuildContext context) {
     return GetBuilder<MessagingIndexController>(builder: (controller) {
       return Scaffold(
-        body: SingleChildScrollView(
+        body: Container(
           child: Column(
             children: [buildHeader(context), buildBody()],
           ),
@@ -21,21 +21,28 @@ class MessagingIndexPage extends GetView<MessagingIndexController> {
     });
   }
 
-  Container buildBody() => Container(
-        color: Colors.white,
-        child: Column(
-          children: [...friends.map((e) => FriendsCard(friend: e))],
+  Widget buildBody() => Expanded(
+        child: Container(
+          // color: Colors.cyan,
+          color: Colors.white,
+          // child: Column(
+          //   children: [...friends.map((e) => FriendsCard(friend: e))],
+          // ),
+          child: ListView.separated(
+            padding: EdgeInsets.zero,
+            // itemBuilder: (context, index) => Container(
+            //   height: 100,
+            //   color: Colors.yellow,
+            // ),
+            itemBuilder: (context, index) => FriendsCard(
+              friend: friends[index],
+            ),
+            separatorBuilder: (context, index) => SizedBox(
+              height: 1,
+            ),
+            itemCount: friends.length,
+          ),
         ),
-        // child: ListView.separated(
-        //   shrinkWrap: true,
-        //   itemBuilder: (context, index) => FriendsCard(
-        //     friend: friends[index],
-        //   ),
-        //   separatorBuilder: (context, index) => SizedBox(
-        //     height: 10,
-        //   ),
-        //   itemCount: friends.length,
-        // ),
       );
 
   Container buildHeader(BuildContext context) {
