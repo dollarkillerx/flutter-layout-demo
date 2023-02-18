@@ -23,21 +23,31 @@ class SearchInput extends StatelessWidget {
           ),
           hintText: 'Search for history, classes,...',
           suffixIcon: Container(
-            padding: EdgeInsets.all(15),
-            child: SvgPicture.asset('assets/icons/search.svg'),
-            decoration: BoxDecoration(),
+            margin: EdgeInsets.all(5),
+            padding: EdgeInsets.all(10),
+            child: SvgPicture.asset(
+              'assets/icons/search.svg',
+              color: Colors.white,
+              height: 10,
+            ),
+            decoration: BoxDecoration(
+                color: Colors.yellow.shade800,
+                borderRadius: BorderRadius.circular(10)),
           ),
         ),
       ),
       clipBehavior: Clip.antiAliasWithSaveLayer,
-      decoration:
-          BoxDecoration(borderRadius: BorderRadius.circular(10), boxShadow: [
-        BoxShadow(
-          color: Colors.grey.withOpacity(0.1),
-          blurRadius: 1,
-          offset: Offset(1, 1),
-        )
-      ]),
+      decoration: BoxDecoration(
+          border:
+              Border.all(color: CourseLearColors.kFontLight.withOpacity(0.3)),
+          borderRadius: BorderRadius.circular(10),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.1),
+              blurRadius: 1,
+              offset: Offset(1, 1),
+            )
+          ]),
     );
   }
 }

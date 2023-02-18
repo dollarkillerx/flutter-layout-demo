@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:ui_study/app/course_learning_app/constants/colors.dart';
+import 'package:ui_study/app/course_learning_app/widgets/course_title.dart';
 import '../../widgets/hu_list_card.dart';
 import 'controller.dart';
 import '../../widgets/search_input.dart';
@@ -47,13 +48,18 @@ class CourseLearningIndexPage extends GetView<CourseLearningIndexController> {
           ],
         ),
         body: SingleChildScrollView(
+          padding: EdgeInsets.all(15),
           child: Column(
             children: [
               buildHeader(),
               SizedBox(
                 height: 10,
               ),
-              HuListCard()
+              HuListCard(),
+              SizedBox(
+                height: 10,
+              ),
+              CourseTitle(title: "Currently active")
             ],
           ),
         ),
@@ -62,7 +68,7 @@ class CourseLearningIndexPage extends GetView<CourseLearningIndexController> {
   }
 
   Container buildHeader() => Container(
-        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 3),
+        // padding: EdgeInsets.symmetric(horizontal: 20, vertical: 3),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

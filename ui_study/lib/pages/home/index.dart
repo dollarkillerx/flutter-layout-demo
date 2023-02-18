@@ -26,6 +26,14 @@ class HomePage extends GetView<HomeController> {
         body: ListView(
           children: [
             ViewCard(
+              img: "assets/images/img4.png",
+              title: "Course Learning App",
+              description: "课程学习App",
+              onTap: () {
+                Get.toNamed(AppRoutes.CourseLearning);
+              },
+            ),
+            ViewCard(
               img: "assets/images/img1.png",
               title: "Travel App",
               description: "旅游APP",
@@ -47,14 +55,6 @@ class HomePage extends GetView<HomeController> {
               description: "探险App",
               onTap: () {
                 Get.toNamed(AppRoutes.AdventureTravel);
-              },
-            ),
-            ViewCard(
-              img: "assets/images/img4.png",
-              title: "Course Learning App",
-              description: "课程学习App",
-              onTap: () {
-                Get.toNamed(AppRoutes.CourseLearning);
               },
             ),
           ],

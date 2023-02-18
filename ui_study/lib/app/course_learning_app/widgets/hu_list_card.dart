@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:ui_study/app/course_learning_app/model/model.dart';
+import 'package:ui_study/app/course_learning_app/widgets/course_card_list.dart';
+import '../constants/colors.dart';
+import 'course_title.dart';
 
 class HuListCard extends StatelessWidget {
   const HuListCard({
@@ -7,28 +11,19 @@ class HuListCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final courseList = Course.generateCourse();
+
     return Container(
-      padding: EdgeInsets.all(15),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                "Top of the week",
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              Text(
-                "View all",
-                style: TextStyle(
-                  fontSize: 20,
-                ),
-              ),
-            ],
-          )
+          CourseTitle(title: "Top of the week"),
+          SizedBox(
+            height: 10,
+          ),
+          CourseCardList(
+            courseList: courseList,
+          ),
         ],
       ),
     );
