@@ -9,19 +9,20 @@ class SearchInput extends StatelessWidget {
     return Container(
       child: TextField(
         decoration: InputDecoration(
-            fillColor: Colors.white, // 背景颜色
-            filled: true, // 是否填充背景
+            fillColor: Colors.white,
+            // 背景颜色
+            filled: true,
+            // 是否填充背景
             border: OutlineInputBorder(
               borderSide: BorderSide.none,
               borderRadius: BorderRadius.circular(8),
             ),
-          hintText: 'Search here...',
-          prefixIcon: Container(
-            padding: EdgeInsets.all(15),
-            child: SvgPicture.asset('assets/icons/search.svg'),
-          ),
-          contentPadding: EdgeInsets.all(2)
-        ),
+            hintText: 'Search here...',
+            prefixIcon: Container(
+              padding: EdgeInsets.all(15),
+              child: SvgPicture.asset('assets/icons/search.svg'),
+            ),
+            contentPadding: EdgeInsets.all(2)),
       ),
     );
   }
