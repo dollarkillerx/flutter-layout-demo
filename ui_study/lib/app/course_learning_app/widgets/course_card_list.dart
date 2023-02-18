@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:get/get.dart';
+import '../../../common/routers/app_routes.dart';
 import '../constants/colors.dart';
 import '../model/model.dart';
 
@@ -16,10 +17,20 @@ class CourseCardList extends StatelessWidget {
       child: ListView.separated(
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) => Container(
-                child: CourseCard(
-                  img: courseList.elementAt(index).img,
-                  auth: courseList.elementAt(index).auth,
-                  description: courseList.elementAt(index).description,
+                child: GestureDetector(
+                  onTap: () {
+                    Get.toNamed(
+                        AppRoutes.pathJoin(
+                            [AppRoutes.CourseLearning, AppRoutes.Detail]),
+                        arguments: {
+                          "course": courseList.elementAt(index),
+                        });
+                  },
+                  child: CourseCard(
+                    img: courseList.elementAt(index).img,
+                    auth: courseList.elementAt(index).auth,
+                    description: courseList.elementAt(index).description,
+                  ),
                 ),
               ),
           separatorBuilder: (context, index) => SizedBox(
@@ -130,7 +141,7 @@ class CourseCard extends StatelessWidget {
             ],
           ),
           Positioned(
-              top: 150,
+              top: 180,
               right: 15,
               child: Container(
                 alignment: Alignment.center,

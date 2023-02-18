@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:ui_study/app/course_learning_app/constants/colors.dart';
-import 'package:ui_study/app/course_learning_app/widgets/course_title.dart';
+import '../../widgets/course_min_card.dart';
 import '../../widgets/hu_list_card.dart';
 import 'controller.dart';
 import '../../widgets/search_input.dart';
@@ -53,15 +53,64 @@ class CourseLearningIndexPage extends GetView<CourseLearningIndexController> {
             children: [
               buildHeader(),
               SizedBox(
-                height: 10,
+                height: 15,
               ),
               HuListCard(),
               SizedBox(
-                height: 10,
+                height: 15,
               ),
-              CourseTitle(title: "Currently active")
+              CourseMinCard()
             ],
           ),
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          backgroundColor: CourseLearColors.kBackground,
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          items: [
+            BottomNavigationBarItem(
+              label: 'Home',
+              icon: Container(
+                padding: EdgeInsets.only(bottom: 5),
+                child: Text(
+                  "Home",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                decoration: BoxDecoration(
+                    border: Border(
+                        bottom: BorderSide(
+                  color: Colors.orange,
+                  width: 2,
+                ))),
+              ),
+            ),
+            BottomNavigationBarItem(
+              label: 'Chat',
+              icon: SvgPicture.asset(
+                "assets/icons/chat.svg",
+                width: 20,
+              ),
+            ),
+            BottomNavigationBarItem(
+              label: 'Mark',
+              icon: SvgPicture.asset(
+                "assets/icons/mark.svg",
+                width: 20,
+                color: Colors.black45,
+              ),
+            ),
+            BottomNavigationBarItem(
+              label: 'Home',
+              icon: SvgPicture.asset(
+                "assets/icons/home.svg",
+                width: 20,
+                color: Colors.black45,
+              ),
+            )
+          ],
         ),
       );
     });

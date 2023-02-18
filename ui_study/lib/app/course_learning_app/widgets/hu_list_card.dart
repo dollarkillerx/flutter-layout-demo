@@ -19,7 +19,7 @@ class HuListCard extends StatelessWidget {
         children: [
           CourseTitle(title: "Top of the week"),
           SizedBox(
-            height: 10,
+            height: 15,
           ),
           CourseCardList(
             courseList: courseList,
