@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:ui_study/app/course_learning_app/constants/colors.dart';
+import '../../model/model.dart';
+import '../../widgets/course_module.dart';
 import 'controller.dart';
 
 class CourseLearningDetailPage extends GetView<CourseLearningDetailController> {
   @override
   Widget build(BuildContext context) {
+    final List<CourseUnit> courseUnitList = CourseUnit.generateUnit();
+
     return GetBuilder<CourseLearningDetailController>(builder: (controller) {
       return Scaffold(
         body: SingleChildScrollView(
@@ -21,30 +24,11 @@ class CourseLearningDetailPage extends GetView<CourseLearningDetailController> {
                 child: Column(
                   children: [
                     buildTitle(),
-                    SizedBox(height: 15,),
-                    Container(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                "The progress",
-                                style: TextStyle(
-                                  fontSize: 25,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.only(right: 10),
-                                child:
-                                    SvgPicture.asset("assets/icons/menu.svg"),
-                              )
-                            ],
-                          ),
-                        ],
-                      ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    CourseModule(
+                      courseUnitList: courseUnitList,
                     )
                   ],
                 ),
