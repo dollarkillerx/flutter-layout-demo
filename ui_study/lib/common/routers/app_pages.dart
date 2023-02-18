@@ -8,6 +8,10 @@ import 'package:ui_study/app/course_learning_app/pages/index/binding.dart';
 import 'package:ui_study/app/course_learning_app/pages/index/index.dart';
 import 'package:ui_study/app/house_rent_app/pages/index/binding.dart';
 import 'package:ui_study/app/house_rent_app/pages/index/index.dart';
+import 'package:ui_study/app/messaging_app/pages/detail/binding.dart';
+import 'package:ui_study/app/messaging_app/pages/detail/index.dart';
+import 'package:ui_study/app/messaging_app/pages/index/binding.dart';
+import 'package:ui_study/app/messaging_app/pages/index/index.dart';
 import 'package:ui_study/app/travel_app/pages/detial/binding.dart';
 import 'package:ui_study/app/travel_app/pages/detial/index.dart';
 import 'package:ui_study/common/routers/app_routes.dart';
@@ -81,6 +85,19 @@ class AppPages {
             name: AppRoutes.Detail,
             page: () => CourseLearningDetailPage(),
             binding: CourseLearningDetailBinding(),
+          )
+        ]),
+
+    // 案例5: Messagin App
+    GetPage(
+        name: AppRoutes.Messaging,
+        page: () => MessagingIndexPage(),
+        binding: MessagingIndexBinding(),
+        children: <GetPage>[
+          GetPage(
+            name: AppRoutes.Detail,
+            page: () => MessagingDetailPage(),
+            binding: MessagingDetailBinding(),
           )
         ]),
   ];
