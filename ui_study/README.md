@@ -4,7 +4,9 @@
 - Travel App
 - House Rent App
 - Adventure Travel App
+- Course Learning App
 - Messaging App
+- Management app tool mobile application
 
 ##### Travel App 
 
@@ -71,3 +73,7 @@
 
     - WebRTC不能大规模直播(同时在线5000或者10000人以上算大规模)使用。因为WebRTC走UDP，如果中间转发节点多且网络不好，那么一层一层丢包下来，会导致画面严重失真。
 如果直播并且不需要双向通话的话，那么使用rtmp推流，HTTP-FLV、HLS拉流是个很好的选择。
+
+##### Management app tool mobile application
+
+![](./assets/images/img6.webp)
