@@ -38,26 +38,63 @@ class MessagingDetailPage extends GetView<MessagingDetailController> {
                           topLeft: Radius.circular(40),
                           topRight: Radius.circular(40),
                         )),
-                    child: ListView.separated(
-                        itemBuilder: (context, index) {
-                          if (index % 2 == 0) {
-                            return MsgCard(
-                              message:
-                                  controller.friend.messages.elementAt(index),
-                              friend: controller.friend,
-                            );
-                          } else {
-                            return MsgCard(
-                              message:
-                                  controller.friend.messages.elementAt(index),
-                            );
-                          }
-                        },
-                        separatorBuilder: (controller, index) => SizedBox(
-                              height: 10,
+                    child: Stack(
+                      children: [
+                        Container(
+                          child: ListView.separated(
+                              itemBuilder: (context, index) {
+                                if (index % 2 == 0) {
+                                  return MsgCard(
+                                    message: controller.friend.messages
+                                        .elementAt(index),
+                                    friend: controller.friend,
+                                  );
+                                } else {
+                                  return MsgCard(
+                                    message: controller.friend.messages
+                                        .elementAt(index),
+                                  );
+                                }
+                              },
+                              separatorBuilder: (controller, index) => SizedBox(
+                                    height: 10,
+                                  ),
+                              itemCount: controller.friend.messages.length),
+                          margin: EdgeInsets.only(bottom: 60),
+                        ),
+                        Align(
+                          // 固定定位
+                          alignment: Alignment.bottomCenter,
+                          child: Container(
+                            height: 60,
+                            alignment: Alignment.center,
+                            padding: EdgeInsets.symmetric(horizontal: 20),
+                            decoration: BoxDecoration(
+                                color: Color(0xfff7f7f8),
+                                borderRadius: BorderRadius.circular(50)),
+                            child: TextField(
+                              decoration: InputDecoration(
+                                border: InputBorder.none,
+                                hintText: 'Type your message...',
+                                suffixIcon: Container(
+                                  height: 10,
+                                  width: 10,
+                                  child: Icon(
+                                    Icons.send,
+                                    color: Colors.white,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(100),
+                                    color: Colors.deepPurpleAccent,
+                                  ),
+                                ),
+                              ),
                             ),
-                        itemCount: controller.friend.messages.length),
-                  ))
+                          ),
+                        )
+                      ],
+                    ),
+                  )),
             ],
           ),
         ),
