@@ -8,6 +8,10 @@ import 'package:ui_study/app/course_learning_app/pages/index/binding.dart';
 import 'package:ui_study/app/course_learning_app/pages/index/index.dart';
 import 'package:ui_study/app/house_rent_app/pages/index/binding.dart';
 import 'package:ui_study/app/house_rent_app/pages/index/index.dart';
+import 'package:ui_study/app/job_app/pages/detail/binding.dart';
+import 'package:ui_study/app/job_app/pages/detail/index.dart';
+import 'package:ui_study/app/job_app/pages/index/binding.dart';
+import 'package:ui_study/app/job_app/pages/index/index.dart';
 import 'package:ui_study/app/management_app/pages/detail/binding.dart';
 import 'package:ui_study/app/management_app/pages/detail/index.dart';
 import 'package:ui_study/app/management_app/pages/index/binding.dart';
@@ -115,6 +119,19 @@ class AppPages {
             name: AppRoutes.Detail,
             page: () => ManagementDetailPage(),
             binding: ManagementDetailBinding(),
+          )
+        ]),
+
+    // 案例7: Job App
+    GetPage(
+        name: AppRoutes.Job,
+        page: () => JobIndexPage(),
+        binding: JobIndexBinding(),
+        children: <GetPage>[
+          GetPage(
+            name: AppRoutes.Detail,
+            page: () => JobDetailPage(),
+            binding: JobDetailBinding(),
           )
         ]),
   ];

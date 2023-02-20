@@ -8,6 +8,7 @@ flutter layout demo   flutter布局demo
 - Course Learning App
 - Messaging App
 - Management app tool mobile application
+- Job app
 
 ##### Travel App
 
@@ -34,6 +35,9 @@ flutter layout demo   flutter布局demo
 
 ![](./ui_study/assets/images/img6.webp)
 
+##### Job app
+
+![](./ui_study/assets/images/img7.webp)
 
 ### menu
 - [BasicLayout](basic_layout) 基础布局

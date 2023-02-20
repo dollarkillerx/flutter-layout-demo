@@ -26,6 +26,14 @@ class HomePage extends GetView<HomeController> {
         body: ListView(
           children: [
             ViewCard(
+              img: "assets/images/img7.webp",
+              title: "Job App",
+              description: "Job App",
+              onTap: () {
+                Get.toNamed(AppRoutes.Job);
+              },
+            ),
+            ViewCard(
               img: "assets/images/img6.webp",
               title: "Management App",
               description: "管理工具 App",

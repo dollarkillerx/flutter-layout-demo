@@ -7,6 +7,7 @@ class AppRoutes {
   static const String CourseLearning = '/course_learning';
   static const String Messaging = '/messaging';
   static const String Management = '/management';
+  static const String Job = '/job';
 
   static const String Detail = '/detial';
 
