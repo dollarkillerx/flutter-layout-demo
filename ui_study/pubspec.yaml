@@ -42,6 +42,7 @@ dependencies:
   percent_indicator: ^4.2.2
   mock_data: ^2.0.0
   intl: ^0.17.0
+  dotted_border: ^2.0.0+3
 
 dev_dependencies:
   flutter_test:
