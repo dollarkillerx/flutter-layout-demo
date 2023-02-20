@@ -1,6 +1,9 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:ui_study/app/management_app/model/model.dart';
+
+import '../../../common/routers/app_routes.dart';
 
 class ManagementTasksCard extends StatelessWidget {
   const ManagementTasksCard({
@@ -12,8 +15,6 @@ class ManagementTasksCard extends StatelessWidget {
     var tasks = Task.generateTasks();
 
     return Container(
-      width: double.infinity,
-      height: MediaQuery.of(context).size.height,
       padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -25,15 +26,24 @@ class ManagementTasksCard extends StatelessWidget {
           Expanded(
             child: Container(
               child: GridView.builder(
-                // shrinkWrap: true,
                 itemCount: tasks.length,
+                padding: EdgeInsets.only(top: 10),
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2, // 每行两个
                   crossAxisSpacing: 10, // 行间隔
                   mainAxisSpacing: 10, // 纵间隔
                 ),
                 itemBuilder: (context, index) {
-                  return buildCard(tasks.elementAt(index));
+                  return GestureDetector(
+                    onTap: () {
+                      Get.toNamed(
+                          AppRoutes.pathJoin(
+                              [AppRoutes.Management, AppRoutes.Detail]),
+                          arguments: {
+                            "task": tasks.elementAt(index),
+                          });
+                    },
+                      child: buildCard(tasks.elementAt(index)));
                 },
               ),
             ),
@@ -107,10 +117,13 @@ class ManagementTasksCard extends StatelessWidget {
         // 线条宽松
         color: Colors.grey,
         child: Center(
-          child: Text(" + Add", style: TextStyle(
-            fontSize: 25,
-            fontWeight: FontWeight.bold,
-          ),),
+          child: Text(
+            " + Add",
+            style: TextStyle(
+              fontSize: 25,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
         ),
       ),
       // decoration: BoxDecoration(

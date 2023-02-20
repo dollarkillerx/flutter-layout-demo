@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:ui_study/app/management_app/model/model.dart';
+import '../../../../common/routers/app_routes.dart';
 import '../../widgets/management_tasks_card.dart';
 import 'controller.dart';
 
@@ -9,68 +11,75 @@ class ManagementIndexPage extends GetView<ManagementIndexController> {
     return GetBuilder<ManagementIndexController>(builder: (controller) {
       return Scaffold(
         backgroundColor: Colors.white,
-        body: SingleChildScrollView(
+        body: Container(
           child: Column(
             children: [
               buildAppbar(),
               // SizedBox(height: 20),
               buildHeaderCard(),
-              ManagementTasksCard()
+              Expanded(child: ManagementTasksCard())
             ],
           ),
         ),
-        bottomNavigationBar: Container(
-          height: 100,
-          clipBehavior: Clip.antiAlias,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(40),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey.withOpacity(0.6),
-                blurRadius: 10,
-                offset: Offset(2, 2),
-              )
-            ],
-          ),
-          child: BottomNavigationBar(
-            showUnselectedLabels: false,
-            showSelectedLabels: false,
-            selectedItemColor: Colors.blueAccent,
-            unselectedItemColor: Colors.grey.withOpacity(0.5),
-            items: [
-              BottomNavigationBarItem(
-                label: "home",
-                icon: Icon(
-                  Icons.home,
-                  size: 30,
-                ),
-              ),
-              BottomNavigationBarItem(
-                label: "person",
-                icon: Icon(
-                  Icons.person,
-                  size: 30,
-                ),
-              ),
-            ],
-          ),
-        ),
+        bottomNavigationBar: buildBottomNavigationBar(),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         // bottomNavigationBar 中间
-        floatingActionButton: FloatingActionButton(
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-          elevation: 0,
-          backgroundColor: Colors.black,
-          onPressed: () {},
-          child: Icon(
-            Icons.add,
-            size: 35,
-          ),
-        ),
+        floatingActionButton: buildFloatingActionButton(),
       );
     });
+  }
+
+  FloatingActionButton buildFloatingActionButton() {
+    return FloatingActionButton(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+      elevation: 0,
+      backgroundColor: Colors.black,
+      onPressed: () {},
+      child: Icon(
+        Icons.add,
+        size: 35,
+      ),
+    );
+  }
+
+  Container buildBottomNavigationBar() {
+    return Container(
+      height: 100,
+      clipBehavior: Clip.antiAlias,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(40),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.6),
+            blurRadius: 10,
+            offset: Offset(2, 2),
+          )
+        ],
+      ),
+      child: BottomNavigationBar(
+        showUnselectedLabels: false,
+        showSelectedLabels: false,
+        selectedItemColor: Colors.blueAccent,
+        unselectedItemColor: Colors.grey.withOpacity(0.5),
+        items: [
+          BottomNavigationBarItem(
+            label: "home",
+            icon: Icon(
+              Icons.home,
+              size: 30,
+            ),
+          ),
+          BottomNavigationBarItem(
+            label: "person",
+            icon: Icon(
+              Icons.person,
+              size: 30,
+            ),
+          ),
+        ],
+      ),
+    );
   }
 
   Widget buildAppbar() {
