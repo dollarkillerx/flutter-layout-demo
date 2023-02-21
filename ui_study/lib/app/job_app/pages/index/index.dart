@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:ui_study/app/job_app/constants/colors.dart';
+import '../../../../common/routers/app_routes.dart';
 import '../../widgets/left_list.dart';
 import '../../widgets/more_card.dart';
 import 'controller.dart';
@@ -11,28 +12,26 @@ class JobIndexPage extends GetView<JobIndexController> {
   Widget build(BuildContext context) {
     return GetBuilder<JobIndexController>(builder: (controller) {
       return Scaffold(
-        body: SafeArea(
-          child: Stack(
-            children: [
-              buildBg(),
-              Container(
-                child: Column(
-                  children: [
-                    buildHeader(),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    buildSearchCard(),
-                    LeftList(),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    MoreCard(),
-                  ],
-                ),
-              )
-            ],
-          ),
+        body: Stack(
+          children: [
+            buildBg(),
+            SafeArea(
+              child: Column(
+                children: [
+                  buildHeader(),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  buildSearchCard(),
+                  LeftList(),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  MoreCard(),
+                ],
+              ),
+            )
+          ],
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: FloatingActionButton(
@@ -143,19 +142,48 @@ class JobIndexPage extends GetView<JobIndexController> {
             padding: EdgeInsets.symmetric(horizontal: 10),
             decoration: BoxDecoration(
                 color: Colors.white, borderRadius: BorderRadius.circular(40)),
-            child: TextField(
-              decoration: InputDecoration(
-                fillColor: Colors.white,
-                filled: true,
-                border: OutlineInputBorder(
-                  borderSide: BorderSide.none,
-                ),
-                hintText: 'Search here...',
-                prefixIcon: Container(
-                  padding: EdgeInsets.all(10),
-                  child: SvgPicture.asset('assets/icons/search.svg'),
-                ),
-                // contentPadding: EdgeInsets.all(2),
+            // child: TextField(
+            //   decoration: InputDecoration(
+            //     fillColor: Colors.white,
+            //     filled: true,
+            //     border: OutlineInputBorder(
+            //       borderSide: BorderSide.none,
+            //     ),
+            //     hintText: 'Search here...',
+            //     prefixIcon: Container(
+            //       padding: EdgeInsets.all(10),
+            //       child: SvgPicture.asset('assets/icons/search.svg'),
+            //     ),
+            //     // contentPadding: EdgeInsets.all(2),
+            //   ),
+            // ),
+            child: GestureDetector(
+              onTap: () {
+                Get.toNamed(
+                  AppRoutes.pathJoin([AppRoutes.Job, AppRoutes.Detail]),
+                );
+              },
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: 15,
+                  ),
+                  Icon(
+                    Icons.search,
+                    size: 40,
+                    color: Colors.grey,
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Text(
+                    "Search job",
+                    style: TextStyle(
+                      fontSize: 25,
+                      color: Colors.grey,
+                    ),
+                  ),
+                ],
               ),
             ),
           )

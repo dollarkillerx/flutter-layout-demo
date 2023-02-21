@@ -9,6 +9,19 @@ class Job {
   Job(this.icon, this.companyName, this.collect, this.jobName, this.location,
       this.requirement);
 
+  static List<String> generateJobTags() {
+    return [
+      "Devlopment",
+      "Business",
+      "Data",
+      "Design",
+      "Golang",
+      "Flutter",
+      "Rust",
+      "Python",
+    ];
+  }
+
   static List<Job> generateJobs() {
     return [
       Job("assets/images/airbnb_logo.png", "Airbnb inc,", false,
