@@ -1,6 +1,10 @@
+import 'dart:ui';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ui_study/app/job_app/constants/colors.dart';
 import 'package:ui_study/app/job_app/model/model.dart';
+import 'package:ui_study/app/job_app/widgets/job_detail.dart';
 
 class MoreCard extends StatelessWidget {
   const MoreCard({Key? key}) : super(key: key);
@@ -14,7 +18,20 @@ class MoreCard extends StatelessWidget {
       width: double.infinity,
       child: ListView.separated(
           scrollDirection: Axis.horizontal,
-          itemBuilder: (context, index) => buildCard(jobs.elementAt(index)),
+          itemBuilder: (context, index) => GestureDetector(
+              onTap: () {
+                // showModalBottomSheet(   普通底层弹窗
+                // backgroundColor: Colors.transparent,
+                // isScrollControlled: true,
+
+                // 毛玻璃特效 底层弹窗： showCupertinoModalPopup  + filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 6.0),
+                showCupertinoModalPopup(
+                    context: context,
+                    filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 6.0),
+                    builder: (context) =>
+                        JobDetail(job: jobs.elementAt(index)));
+              },
+              child: buildCard(jobs.elementAt(index))),
           separatorBuilder: (context, index) => SizedBox(
                 width: 5,
               ),
@@ -41,6 +58,7 @@ class MoreCard extends StatelessWidget {
                     children: [
                       Container(
                         height: 60,
+                        padding: EdgeInsets.all(5),
                         child: Image.asset(job.icon),
                         decoration: BoxDecoration(
                             color: Colors.grey.withOpacity(0.3),
@@ -76,7 +94,10 @@ class MoreCard extends StatelessWidget {
             Text(
               job.jobName,
               maxLines: 2,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, overflow: TextOverflow.ellipsis),
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                  overflow: TextOverflow.ellipsis),
             ),
             SizedBox(
               height: 10,
