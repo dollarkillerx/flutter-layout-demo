@@ -16,7 +16,7 @@ crate_isolate() async {
 
   Isolate newIsolate = await Isolate.spawn(doWork, sendPort1);
 
-  print("jc");
+  print("start");
 
   SendPort? port2;
   receivePort.listen((message) {
@@ -28,6 +28,8 @@ crate_isolate() async {
 
     port2?.send([1, "这条信息是 main isolate 发送的"]);
   });
+
+  print("end");
 }
 
 // 耗时任务

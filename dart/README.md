@@ -270,3 +270,83 @@ void doWork(String value){
 
 ### Stream
 
+> https://juejin.cn/post/6844903942183190542
+
+Strea 生成的数据 如果没有消费就会消失
+
+- 单订阅流 Single-subscription  
+- 广播流
+
+##### 单订阅流
+
+单订阅流的特点是只允许存在一个监听器，即使该监听器被取消后，也不允许再次注册监听器。
+
+间隔时间执行流；periodic
+
+``` 
+test1() async {
+  // 使用 periodic 创建流， 第一个参数为间隔事件， 第二个参数为回掉函数
+  Stream<String> stream =
+      Stream<String>.periodic(Duration(seconds: 1), callback);
+  // await for
+  sleep(Duration(seconds: 3));
+  await for (var i in stream) {
+    print(i);
+  }
+}
+
+String callback(int value) {
+  print('send $value');
+  return 'get send $value';
+}
+```
+
+执行任务的流：
+
+``` 
+test2() async {
+  print("test start");
+  Future<String> fut = Future(() {
+    return "async task";
+  });
+
+  // 从Future创建Stream
+  Stream<String> stream = Stream<String>.fromFuture(fut);
+  await for (var s in stream) {
+    print(s);
+  }
+  print("test end");
+}
+```
+
+#### 广播流
+
+调用 Stream 的 asBroadcastStream 方法创建
+
+``` 
+  // 调用 Stream 的 asBroadcastStream 方法创建
+  Stream<int> stream = Stream<int>.periodic(Duration(seconds: 1), (e)=>e)
+  .asBroadcastStream();
+  stream = stream.take(5);
+
+  stream.listen(print);
+  stream.listen(print);
+
+```
+
+使用StreamController 方法创建
+
+``` 
+  // 创建广播流
+  StreamController sc = StreamController.broadcast();
+
+  sc.stream.listen(print);
+  sc.stream.listen(print);
+
+  sc.add("event1");
+  sc.add("event2");
+
+```
+
+
+
