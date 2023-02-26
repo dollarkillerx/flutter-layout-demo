@@ -32,7 +32,11 @@ class FoodDetailPage extends GetView<FoodDetailController> {
                     Positioned(
                         top: -150,
                         left: 50,
-                        child: Image.asset(controller.food.img))
+                        child: Image.asset(
+                          controller.food.img,
+                          fit: BoxFit.fill,
+                          height: 300,
+                        ))
                   ],
                 ),
               )
