@@ -45,6 +45,7 @@ dependencies:
   dotted_border: ^2.0.0+3
   table_calendar: ^3.0.8
   timeline_tile: ^2.0.0
+  smooth_page_indicator: ^1.0.1
 
 dev_dependencies:
   flutter_test:
