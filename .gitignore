@@ -36,3 +36,6 @@ slivers/build/
 
 utility_components/.idea/
 utility_components/build/
+
+game_demo/.idea/
+game_demo/build/
