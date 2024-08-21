@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'home_page.dart';
+
 class IntroPage extends StatelessWidget {
   const IntroPage({super.key});
 
@@ -21,25 +23,39 @@ class IntroPage extends StatelessWidget {
             child: Text(
               "We deliver grocerise at your doorstep",
               textAlign: TextAlign.center,
-              style: GoogleFonts.notoSerif(),
+              style: GoogleFonts.notoSerif(
+                fontSize: 36,
+                fontWeight: FontWeight.bold,
+              ),
               // style: TextStyle(
               //   fontSize: 40,
               //   fontWeight: FontWeight.bold,
               // ),
             ),
           ),
-          Text("Fresh items everyday"),
+          Text(
+            "Fresh items everyday",
+            style: TextStyle(color: Colors.grey[600]),
+          ),
           Spacer(),
           // button
-          Container(
-            decoration: BoxDecoration(
-              color: Colors.deepPurpleAccent,
-              borderRadius: BorderRadius.circular(20),
+          GestureDetector(
+            onTap: () => Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (context) => HomePage(),
+              ),
             ),
-            padding: EdgeInsets.all(20),
-            child: Text(
-              "Get Started",
-              style: TextStyle(color: Colors.white),
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.deepPurpleAccent,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              padding: EdgeInsets.all(20),
+              child: Text(
+                "Get Started",
+                style: TextStyle(color: Colors.white),
+              ),
             ),
           ),
           Spacer(),
