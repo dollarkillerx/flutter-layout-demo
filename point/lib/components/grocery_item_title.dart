@@ -4,26 +4,45 @@ class GroceryItemTile extends StatelessWidget {
   final String itemName;
   final String itemPrice;
   final String imagePath;
-  final MaterialAccentColor color;
+  final MaterialColor color;
+  void Function()? onPressed;
 
-  const GroceryItemTile({
-    super.key,
-    required this.itemName,
-    required this.itemPrice,
-    required this.imagePath,
-    required this.color
+  GroceryItemTile(
+      {
+        super.key,
+        required this.itemName,
+        required this.itemPrice,
+        required this.imagePath,
+        required this.color,
+        this.onPressed
   });
-
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.grey[200],
-        borderRadius: BorderRadius.circular(12),
+    return Padding(
+      padding: EdgeInsets.all(12.0),
+      child: Container(
+        padding: EdgeInsets.all(12.0),
+        decoration: BoxDecoration(
+          color: color[100],
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Image.asset(
+              imagePath,
+              height: 64,
+            ),
+            Text(itemName),
+            // Text(itemPrice)
+            MaterialButton(
+              onPressed: this.onPressed,
+              color: color[800],
+              child: Text("\$ " + itemPrice),
+            )
+          ],
+        ),
       ),
-      padding: EdgeInsets.all(12),
-      child: Text("Grocery Item ${this.itemName}"),
     );
   }
 }
